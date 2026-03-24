@@ -1,5 +1,15 @@
 # TEFA-UNet
 [2026]The codes for the work "TEFA-UNet: A Texture-aware and Efficient Fusion-Attention U-shaped Network". Our paper has been submitted to the International Journal of Imaging Systems and Technology. We updated the Reproducibility. I hope this will help you to reproduce the results.
+# Project Structure
+├── tefa_unet.py       # Main TEFA-UNet architecture definition
+├── LGA_block.py       # Local-Global Aggregation Block implementation
+├── MSR_block.py       # Multi-Scale Refinement Block implementation
+├── train.py           # Training script with Cosine Annealing LR and AdamW
+├── test1.py           # Testing script (RGB map generation & Metric calculation)
+├── dataset.py         # PyTorch Dataset for loading 2D MRI slices (.npy)
+├── losses.py          # Loss functions (BCEDiceLoss, etc.)
+├── metrics.py         # Evaluation metrics (IoU, Dice, Sensitivity, PPV)
+└── utils.py           # Utility functions
 # Data Structure & Formats
 After the scripts finish executing, the processed .npy data will be automatically saved into the data/processed/2D/ directory with the following structure:
 data/
