@@ -1,5 +1,14 @@
 # TEFA-UNet
 [2026]The codes for the work "TEFA-UNet: A Texture-aware and Efficient Fusion-Attention U-shaped Network". Our paper has been submitted to the International Journal of Imaging Systems and Technology. We updated the Reproducibility. I hope this will help you to reproduce the results.
+# Data Structure & Formats
+After the scripts finish executing, the processed .npy data will be automatically saved into the data/processed/2D/ directory with the following structure:
+data/
+  └── processed/
+      └── 2D/
+          ├── trainImage/
+          ├── trainMask/
+          ├── testImage/
+          └── testMask/
 # Prepare data
 The datasets we used are the public BraTS 2018 and BraTS 2019 brain glioma MRI datasets.
 Extract all raw files into data/unprocessed/.
@@ -20,3 +29,4 @@ python test1.py --mode GetPicture
 python test1.py --mode Calculate
 # Reproducibility
 Regarding how to reproduce the segmentation results presented in the paper, we carefully set the random seed, so the results should be consistent when trained multiple times. To comprehensively evaluate the model's performance, we employed Test Time Augmentation (TTA) during the testing phase by applying dihedral group transformations and averaging the multiple predictions. If the training does not give the same segmentation results as in the paper, it is recommended to adjust the learning rate. The model is optimized using AdamW with a Cosine Annealing learning rate adjustment strategy (minimum learning rate set to 1e-5). And, the type of GPU we used in this work is an NVIDIA GeForce RTX 5090 (32GB).
+
